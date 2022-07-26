@@ -33,7 +33,7 @@ const Home: NextPage<Props> = ({ users }) => {
 export default Home
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const response = await fetch('http://localhost:3333/')
+  const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3333')
   const users = await response.json()
 
   return {
